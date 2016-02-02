@@ -1,6 +1,7 @@
 <?php namespace BCG\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * BCG\Models\Role
@@ -14,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Role extends Model
 {
+	use SoftDeletes;
+
 	public function users()
 	{
 		return $this->belongsToMany('BCG\Models\User');

@@ -1,6 +1,7 @@
 <?php namespace BCG\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * BCG\Models\Task
@@ -14,7 +15,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property string $deleted_at
  */
-class Task extends Model {
+class Task extends Model
+{
+	use SoftDeletes;
+
 	public function user()
 	{
 		return $this->belongsTo('BCG\Models\User');
